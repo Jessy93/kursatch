@@ -2,8 +2,7 @@
   <div>
     <div>
       <div class="page-title">
-        <h3>Hi {{ name }} </h3>
-
+        <h3>Добро пожаловать {{ name }} </h3>
         <button class="btn waves-effect waves-light btn-small" @click="refresh">
           <i class="material-icons">refresh</i>
         </button>
@@ -12,30 +11,28 @@
       <Loader v-if="loading"/>
 
       <div v-else class="row">
-        <!-- <HomeBill :rates="currency.rates"/>
-        <HomeCurrency :rates="currency.rates" :date="currency.date"/> -->
-        <OngletPrincipal />
         <MainContent />
         <DeviceSidebar />
       </div>
+
     </div>
   </div>
 </template>
 
 <script>
-// import HomeBill from '@/components/HomeBill'
-// import HomeCurrency from '@/components/HomeCurrency'
 
-import OngletPrincipal from '@/components/Home/OngletPrincipal'
+import Loader from '@/components/app/Loader'
 import MainContent from '@/components/Home/MainContent'
 import DeviceSidebar from '@/components/Home/DeviceSidebar'
 
-import Loader from '@/components/app/Loader'
 export default {
   name: "Home",
   components:  {
-    OngletPrincipal, MainContent, DeviceSidebar, Loader
+    Loader,
+    MainContent, 
+    DeviceSidebar
   },
+  
   data: () => ({
     loading: false,
     currency: null
