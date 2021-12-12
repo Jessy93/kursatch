@@ -22,6 +22,8 @@ import 'firebase/auth'
 import 'firebase/database'
 import 'firebase/firestore'
 
+// import axios from 'axios';
+// axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 Vue.config.productionTip = false
 

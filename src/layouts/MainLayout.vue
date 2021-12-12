@@ -1,6 +1,7 @@
 <template>
   <div>
     <Loader v-if="loading"/>
+
     <div class="app-main-layout" v-else>
       <Navbar @click="isOpen = !isOpen"/>
       <Sidebar v-model="isOpen"/>
@@ -17,7 +18,6 @@
         </a>
       </div>
 
-
       <!-- Modal Structure -->
       <div id="modal1" class="modal" ref="modal">
         <div class="modal-content">
@@ -29,16 +29,16 @@
               <div class="orange btn">
                 <i class="material-icons">attach_file</i>
                 <span>файл</span>
-                <input type="file">
+                <input type="file" id="file" @change="handleFileUpload($event)">
               </div>
               <div class="file-path-wrapper">
-                <input class="file-path validate" type="text">
+                <input class="file-path validate">
               </div>
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <div class="waves-effect green darken-1 btn">
+          <div class="waves-effect green darken-1 btn" :disabled="!this.file" @click="submitFile()">
             <i class="material-icons left">file_upload</i>
             загрузить
           </div>
@@ -49,14 +49,14 @@
         </div>
       </div>
 
-
-        
-
     </div>
   </div>
 </template>
 
 <script>
+
+import axios from 'axios';
+
 import Navbar from '@/components/app/Navbar'
 import Sidebar from '@/components/app/Sidebar'
 import Loader from '@/components/app/Loader'
@@ -68,14 +68,35 @@ export default {
     isOpen: true,
     loading: false,
     isOpenModal: false,
-    instance: null
+    instance: null,
+    file: '',
+    url: 'http://localhost:5000/models/upload',
   }),
+  methods: {
+    handleFileUpload (event) {
+      this.file = event.target.files[0];
+    },
+    submitFile () {
+      let formData = new FormData();
+      formData.append('file', document.querySelector('#file').files[0]);
+      for (var value of formData.values()) {
+        console.log(1, value);
+      }
+      axios.post(this.url, formData, {headers:{'Content-Type': 'multipart/form-data'}})
+        .then(res => {
+          console.log(100, res)
+        })
+        .catch (err => {
+          console.log(101, err);
+        })
+    },
+  },
   async mounted() {
     if (!Object.keys(this.$store.getters.info).length) {
      await this.$store.dispatch('fetchInfo');
      this.loading = false;
     };
-
+    // initialisation de la boite modale
     this.instance = M.Modal.init(this.$refs.modal);
 
 
