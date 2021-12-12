@@ -70,7 +70,7 @@ export default {
     isOpenModal: false,
     instance: null,
     file: '',
-    url: 'http://localhost:5000/models/upload',
+    url: 'http://127.0.0.1:8000/models/upload',
   }),
   methods: {
     handleFileUpload (event) {
@@ -83,7 +83,7 @@ export default {
       for (var value of formData.values()) {
         console.log(1, value);
       }
-      
+
       axios.post(this.url, formData, {headers:{'Content-Type': 'multipart/form-data'}})
         .then(res => {
           console.log(100, res)
