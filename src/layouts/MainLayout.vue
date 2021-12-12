@@ -79,9 +79,11 @@ export default {
     submitFile () {
       let formData = new FormData();
       formData.append('file', document.querySelector('#file').files[0]);
+      
       for (var value of formData.values()) {
         console.log(1, value);
       }
+      
       axios.post(this.url, formData, {headers:{'Content-Type': 'multipart/form-data'}})
         .then(res => {
           console.log(100, res)

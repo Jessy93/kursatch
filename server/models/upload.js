@@ -19,14 +19,16 @@ const config = {
 
 // Upload files 
 router.post('/', upload.single('file'), (req, res) => {
-  console.log(req.file);
+  let f = req.file.buffer.toString('utf8');
+  console.log(f);
+
   if (!req.file) {
     return res.status(500).send({ msg: "file is not found" })
   }
   sftp.connect(config, 'once')
     .then(() => {
       console.log(1);
-      let data = fs.createReadStream(req.file);
+      let data = fs.createReadStream(req.file.buffer.toString('utf8'));
       sftp.put(data, `/Users/macbook/Desktop/media-users/${req.file.originalname}`)
     })
     .then(() => {
