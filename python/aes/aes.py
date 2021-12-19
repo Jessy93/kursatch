@@ -3,6 +3,7 @@ import os
 import shutil
 from pathlib import Path
 
+
 class AESCrypt:
     def __init__(self, bufferSize=512 * 1024):
         self.bufferSize = bufferSize
@@ -35,7 +36,6 @@ class AESCrypt:
             print(e)
 
 
-
 class FileSystem:
     file_name_index = 0
 
@@ -53,16 +53,14 @@ class FileSystem:
         if not os.path.exists(os.path.join(os.getcwd(), outdir)):
             print('folder created')
             os.makedirs(os.path.join(os.getcwd(), outdir))
-        fs = FileSystemStorage()
-        abs_name = fs.save(path, file)
         data = {}
-        data['size'] = round(fs.size(abs_name) * 0.000977)
-        if password:
-            abs_name = AESCrypt().encrypt(abs_name, password)
-        splited_path = abs_name.split('/')
-        data['name'] = splited_path[-1]
-        # data['path'] = abs_name
-        data['url'] = "/".join(splited_path[splited_path.index('media'):])
+        with open(path, "wb") as buffer:
+            shutil.copyfileobj(file.file, buffer)
+            if password:
+                abs_name = AESCrypt().encrypt(path, password)
+                splited_path = abs_name.split('/')
+                data['name'] = splited_path[-1]
+                data['url'] = "/".join(splited_path[splited_path.index('media'):])
         return data
 
     def encode(self, path, password):
