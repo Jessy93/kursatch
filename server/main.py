@@ -45,4 +45,4 @@ async def decrypt(file_url: str, file_pwd: str):
         AESCrypt().decrypt(file_localpath, file_pwd)
         print('file decrypted')
         return FileResponse(os.path.splitext(file_localpath)[0])
-    return {"filename doed not exists"}
+    return {"Error" : "filename does not exists"}
