@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+pyaescrypt
+pysftp
+python-multipart
