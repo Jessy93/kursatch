@@ -19,6 +19,7 @@ def read_root():
 @app.post("/models/upload")
 async def upload(file: UploadFile = File(...)):
     print(file.filename)
+    path = f'media/{file.filename}'
     with open(path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
         encryted_path = AESCrypt().encrypt(path, '000')
