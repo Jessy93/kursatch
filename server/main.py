@@ -42,7 +42,7 @@ async def decrypt(file_url: str, file_pwd: str):
         sftp.get(file_url, file_localpath)
     if os.path.exists(file_localpath):
         print('file exists')
-        # AESCrypt().decrypt(file_localpath, file_pwd)
-        # return FileResponse(os.path.splitext(file_localpath)[0])
-        return FileResponse(file_localpath)
+        AESCrypt().decrypt(file_localpath, file_pwd)
+        print('file decrypted')
+        return FileResponse(os.path.splitext(file_localpath)[0])
     return {"filename doed not exists"}
