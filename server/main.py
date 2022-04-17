@@ -23,7 +23,7 @@ async def upload(file: UploadFile = File(...)):
     with open(path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
         encryted_path = AESCrypt().encrypt(path, '000')
-        with pysftp.Connection('192.168.1.6', username='macbook', password='Jessy93') as sftp:
+        with pysftp.Connection('10.60.3.202', username='macbook', password='Jessy93') as sftp:
             print("connected")
             with sftp.cd("/Users/macbook/Desktop/media-users/"):
                 print("ready to upload")
@@ -37,7 +37,7 @@ async def decrypt(file_url: str, file_pwd: str):
     file_localpath = 'media/{}'.format(file_url.split('/')[-1])
     print(file_url)
     print(file_localpath)
-    with pysftp.Connection('192.168.1.6', username='macbook', password='Jessy93') as sftp:
+    with pysftp.Connection('10.60.3.202', username='macbook', password='Jessy93') as sftp:
         print("connected")
         sftp.get(file_url, file_localpath)
     if os.path.exists(file_localpath):

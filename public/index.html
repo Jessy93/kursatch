@@ -8,17 +8,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- In the head of your document with your other CSS includes... -->
     <!-- Video.js base CSS -->
-    <link
-    href="https://unpkg.com/video.js@7/dist/video-js.min.css"
-    rel="stylesheet"
-    />
-
+    <link href="https://unpkg.com/video.js@7/dist/video-js.min.css" rel="stylesheet" />
     <!-- City -->
-    <link
-    href="https://unpkg.com/@videojs/themes@1/dist/city/index.css"
-    rel="stylesheet"
-    />
-
+    <link href="https://unpkg.com/@videojs/themes@1/dist/city/index.css" rel="stylesheet"/>
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
@@ -27,5 +19,9 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script id="hls-coding" src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script> // HLS First  option Doesnt work-->
+    <!-- <script id="flashphoner-coding" type="text/javascript" src="https://flashphoner-downloads.nyc3.digitaloceanspaces.com/builds/WEB-SDK/2.0/current/flashphoner.js"></script> -->
+    <!-- <script id="jsmpeg-coding" src="https://raw.githubusercontent.com/phoboslab/jsmpeg/master/jsmpeg.min.js"></script> -->
   </body>
 </html>
