@@ -8,10 +8,6 @@ import currencyFilter from '@/filters/currency.filter'
 import messagePlugin from '@/utils/message.plugin'
 import Loader from '@/components/app/Loader'
 
-import video from "video.js";
-import "videojs-flash"; // 引入videojs flash
-Vue.prototype.$video = video; // 将video.js 实例放在Vue原型上
-// Vue.config.productionTip = false;
 
 import './registerServiceWorker'
 import 'materialize-css/dist/js/materialize.min'

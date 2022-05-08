@@ -42,12 +42,6 @@ const routes = [
     component: () => import('../views/Planning.vue')
   },
   {
-    path: '/addNewDevice',
-    name: 'addNewDevice',
-    meta: { layout: 'main' },
-    component: () => import('../views/addNewDevice.vue')
-  },
-  {
     path: '/profile',
     name: 'profile',
     meta: { layout: 'main' },
