@@ -8,6 +8,7 @@
     "start": "node server/index.js"
   },
   "dependencies": {
+    "@flashphoner/websdk": "^2.0.218",
     "axios": "^0.24.0",
     "core-js": "^3.6.5",
     "cors": "^2.8.5",

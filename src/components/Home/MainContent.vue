@@ -1,22 +1,16 @@
 <template>
-   <div class="col s12 m6 l9">
-      <div class="card white darken-3 bill-card">
-        <div class="card-content orange-text">
-          <div class="card-header">
-            <span class="card-title">Управление устройства (Камера)</span>
-            <ListCamera />
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="card">
+    <span class="card-title orange-text">Управление устройства (Камера)</span>
+    <Devices />
+  </div>
 </template>
 
 <script>
-import ListCamera from '@/components/Home/ListCamera'
+import Devices from '@/components/Home/Devices'
 
 export default {
   name: 'MainContent',
-  components:  {ListCamera},
+  components:  {Devices},
 }
 </script>
 

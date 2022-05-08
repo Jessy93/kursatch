@@ -12,7 +12,6 @@
 
       <div v-else class="row">
         <MainContent />
-        <DeviceSidebar />
       </div>
 
     </div>
@@ -23,14 +22,12 @@
 
 import Loader from '@/components/app/Loader'
 import MainContent from '@/components/Home/MainContent'
-import DeviceSidebar from '@/components/Home/DeviceSidebar'
 
 export default {
   name: "Home",
   components:  {
     Loader,
-    MainContent, 
-    DeviceSidebar
+    MainContent
   },
   
   data: () => ({

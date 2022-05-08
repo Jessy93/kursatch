@@ -36,10 +36,10 @@ const routes = [
     component: () => import('../views/Task.vue')
   },
   {
-    path: '/planning',
-    name: 'planning',
+    path: '/encryption',
+    name: 'encryption',
     meta: { layout: 'main' },
-    component: () => import('../views/Planning.vue')
+    component: () => import('../views/Encryption.vue')
   },
   {
     path: '/profile',
