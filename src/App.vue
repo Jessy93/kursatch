@@ -7,8 +7,10 @@
 </template>
 
 <script>
+
+import EmptyLayout from '../src/layouts/EmptyLayout.vue'
+import MainLayout from '../src/layouts/MainLayout.vue'
 export default {
-  // rtsp://91.222.130.82:8554/ch1
   computed: {
     layout() {
       return (this.$route.meta.layout || "empty") + "-layout";
