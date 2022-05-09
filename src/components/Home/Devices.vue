@@ -1,7 +1,5 @@
 <template>
-    <div class="col l12">
-      <h2 class="text-danger">{{ apiFailed }}</h2>
-
+    <div>
       <div class="row col l12" style="margin-top: 20px;">
         <div class="col m6">
           <div class="text-center text-muted">Local</div>
@@ -55,28 +53,26 @@
         </div>
       </div>
 
-      
-          <div class="col-sm-6 offset-sm-3">
-            <div class="input-group col-sm-5">
-              <input type="text"
-               class="form-control"
-               placeholder="Server Url"
-               v-model="serverUrl"
-               :disabled="serverUrlDisabled"
-              />
-              <div class="input-group-btn">
-                <button
-                 class="btn btn-outline-dark"
-                 :disabled="connectButtonDisabled"
-                 v-on:click="onConnectClick">
-                  {{ connectButtonText }}
-                </button>
-              </div>
-            </div>
-            <div class="text-center" style="margin-top: '20px';">
-              <div v-bind:class="sessionStatusClass">{{ sessionStatus }}</div>
-            </div>
-          </div>
+      <div class="row col l12">
+        <div class="row col l9">
+          <input type="text"
+            class="form-control col l9"
+            placeholder="Server Url"
+            v-model="serverUrl"
+            :disabled="serverUrlDisabled"
+          />
+          
+          <button
+            class="input-group-btn btn btn-outline-dark col l3"
+            :disabled="connectButtonDisabled"
+            v-on:click="onConnectClick">
+            {{ connectButtonText }}
+          </button>
+        </div>
+        <div class="text-center col l3">
+          <div v-bind:class="sessionStatusClass">{{ sessionStatus }}</div>
+        </div>
+      </div>
     </div>
 </template>
 
@@ -119,6 +115,7 @@ export default {
   }),
   mounted() {
     this.onLoad();
+    this.onConnectClick();
   },
   methods: {
     onLoad() {
@@ -337,5 +334,11 @@ export default {
 
 video:-webkit-full-screen {
     border-radius: 1px;
+}
+
+.d-flex {
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <div class="card">
-    <span class="card-title orange-text">Управление устройства (Камера)</span>
+  <div>
+    <h5 class="card-title orange-text">Управление устройства (Камера)</h5>
     <Devices />
   </div>
 </template>
@@ -15,7 +15,8 @@ export default {
 </script>
 
 <style scoped>
-  .bill-card {
-    height: 555px;
+  .card-title.orange-text {
+    font-size: 24px;
+    font-weight: 300;
   }
 </style>
