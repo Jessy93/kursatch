@@ -2,12 +2,13 @@
     <div>
       <div class="row col l12" style="margin-top: 20px;">
         <div class="col m6">
-          <div class="text-center text-muted">Local</div>
+          <div class="text-center text-muted">Фронтальная камера устройства</div>
           <div class="fp-Video">
-            <div id="localVideo" class="display"></div>
+            <div id="localVideo" class="display">
+            </div>
           </div>
           <div class="input-group col-sm-5" style="margin: 10px auto 0 auto;">
-            <input type="text" 
+            <input type="text"
              class="form-control"
              placeholder="Stream Name"
              v-model="publishStreamName"
@@ -27,9 +28,65 @@
           </div>
         </div>
         <div class="col m6">
-          <div class="text-center text-muted">Remote</div>
+          <div class="text-center text-muted">Axis</div>
           <div class="fp-Video">
-            <div id="remoteVideo" class="display"></div>
+            <div id="remoteVideo" class="display">
+              <img src="@/assets/media/3.jpg" style="width: 529px; height: 240px;">
+            </div>
+          </div>
+          <div class="input-group col-sm-5" style="margin: 10px auto 0 auto;">
+            <input type="text" 
+             class="form-control"
+             placeholder="Stream Name"
+             v-model="playStreamName"
+             :disabled="playStreamNameDisabled"
+            />
+            <div class="input-group-btn">
+              <button
+               class="btn btn-outline-dark"
+               :disabled="playButtonDisabled"
+               v-on:click="onPlayClick">
+                {{ playButtonText }}
+              </button>
+            </div>
+          </div>
+          <div class="text-center" style="margin-top: 20px;">
+            <div v-bind:class="playStatusClass">{{ playStatus }}</div>
+          </div>
+        </div>
+        <div class="col m6">
+          <div class="text-center text-muted">ИНТЕГРА-С Камера 1</div>
+          <div class="fp-Video">
+            <div id="remoteVideo" class="display">
+              <img src="@/assets/media/1.jpg" style="width: 529px; height: 240px;">
+            </div>
+          </div>
+          <div class="input-group col-sm-5" style="margin: 10px auto 0 auto;">
+            <input type="text" 
+             class="form-control"
+             placeholder="Stream Name"
+             v-model="playStreamName"
+             :disabled="playStreamNameDisabled"
+            />
+            <div class="input-group-btn">
+              <button
+               class="btn btn-outline-dark"
+               :disabled="playButtonDisabled"
+               v-on:click="onPlayClick">
+                {{ playButtonText }}
+              </button>
+            </div>
+          </div>
+          <div class="text-center" style="margin-top: 20px;">
+            <div v-bind:class="playStatusClass">{{ playStatus }}</div>
+          </div>
+        </div>
+        <div class="col m6">
+          <div class="text-center text-muted">ИНТЕГРА-С Камера 2</div>
+          <div class="fp-Video">
+            <div id="remoteVideo" class="display">
+              <img src="@/assets/media/2.jpg" style="width: 529px; height: 240px;">
+            </div>
           </div>
           <div class="input-group col-sm-5" style="margin: 10px auto 0 auto;">
             <input type="text" 
@@ -102,7 +159,12 @@ export default {
     playStatusClass: 'text-muted',
     publishStreamName: 'streamName',
     publishStreamNameDisabled: true,
-    playStreamName: 'rtsp://root:admin@91.222.130.82:3554/axis-media/media.amp',
+    // ИНТЕГРА-С
+    // playStreamName: 'rtsp://admin:admin@91.222.130.82:2054/ch1',
+    // playStreamName: 'rtsp://admin:admin@91.222.130.82:2054/ch1',
+    playStreamName: 'rtsp://admin:admin@91.222.130.82:3054/ch1',
+    // AXIS
+    // playStreamName: 'rtsp://root:admin@91.222.130.82:3554/axis-media/media.amp',
     playStreamNameDisabled: true,
     connectButtonText: 'Connect',
     connectButtonDisabled: false,
